@@ -1,11 +1,13 @@
 from collections import Counter
 
-text = 'acdc bc  gdshcbac'
-st = 'acbc'
+text = "adafg ad"
+st = 'ad'
 
 
 def solution(text, st: str):
     dict = Counter(st)
+    if st == "":
+        return st == text
     for i in text:
         if i in set(st):
             dict[i] -= 1
