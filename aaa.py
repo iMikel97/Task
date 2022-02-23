@@ -1,7 +1,7 @@
 from collections import Counter
 
-text = "ddacaacgasdf ad"
-st = 'adcd'
+text = "ddacaacgasdf addc"
+st = 'adcd '
 
 
 def solution(text, st: str):
@@ -12,7 +12,7 @@ def solution(text, st: str):
     if st == "":
         return st == text
     for i in text:
-        if i in set_st:
+        if i in dict.keys():
             dict[i] -= 1
             count -= 1
             j += 1
