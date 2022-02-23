@@ -7,10 +7,11 @@ st = 'adc '
 def solution(text, st: str):
     dict = Counter(st)
     start_dict = Counter(st)
+    set_st = set(st)
     if st == "":
         return st == text
     for i in text:
-        if i in dict.keys():
+        if i in set_st:
             dict[i] -= 1
             if dict[i] < 0:
                 dict = start_dict
