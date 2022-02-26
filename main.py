@@ -1,10 +1,12 @@
 from collections import Counter
 
-text = "adafg adc"
-st = 'adc '
+text = "adc  afg adc"
+st = 'adc  '
 
 
 def solution(text, st: str):
+    if len(st) > len(text):
+        return False
     dict = Counter(st)
     start_dict = Counter(st)
     set_st = set(st)

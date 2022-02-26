@@ -1,33 +1,27 @@
 from collections import Counter
 
-text = "ddacaacgasdf addc"
-st = 'adcd '
+text = "a acbfb asfgdhs"
+st = 'a a'
 
 
 def solution(text, st: str):
-    dict = Counter(st)
-    count = len(st)
-    set_st = set(st)
-    j = 0
-    if st == "":
-        return st == text
-    for i in text:
-        if i in dict.keys():
-            dict[i] -= 1
+    bag = Counter(st)
+    wnd = len(st)
+    count = wnd
+
+    for i, ch in enumerate(text):
+        if i >= wnd and text[i - wnd] in bag:
+            bag[text[i - wnd]] += 1
+        if ch in bag:
+            bag[ch] -= 1
             count -= 1
-            j += 1
-            if dict[i] < 0:
-                dict = Counter(st)
-                continue
+            if bag[ch] < 0:
+                count += 1
+            if count == 0:
+                return i - wnd + 1, True
         else:
-            dict = Counter(st)
-            count += j
-            j = 0
-        print(count, dict)
-        if count == 0:
-            if sum(dict.values()) == 0:
-                return True
-    return False
+            count = wnd
+    return False, count
 
 
 if __name__ == "__main__":
